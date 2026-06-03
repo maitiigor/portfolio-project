@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oluwatosin Salami — Enterprise Software Engineer</title>
+  <meta name="description" content="Oluwatosin Salami — Enterprise Software Engineer based in Abuja, Nigeria. 5+ years building scalable backend systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #ffffff;
+      --surface:      #f7f7f8;
+      --surface2:     #f0f0f2;
+      --border:       #e4e4e7;
+      --border-dark:  #d1d1d6;
+      --accent:       #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-dim:   rgba(37,99,235,0.08);
+      --text:         #18181b;
+      --text-secondary: #52525b;
+      --text-muted:   #a1a1aa;
+      --radius:       10px;
+      --radius-sm:    6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+
+    .nav-monogram {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: #fff;
+    }
+
+    .nav-name { font-size: 14px; font-weight: 600; color: var(--text); }
+
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      padding: 5px 11px; border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text); background: var(--surface);
+    }
+
+    .btn-hire {
+      margin-left: 10px; padding: 7px 16px;
+      background: var(--accent); color: #fff;
+      border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-hire:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none; background: none; border: none;
+      color: var(--text); cursor: pointer; padding: 4px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background-color: #0b1120;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 0%, rgba(37,99,235,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(99,102,241,0.1) 0%, transparent 60%),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+      position: relative;
+      width: 100%;
+      min-height: 88vh;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 6% 80px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    #hero::after { display: none; }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      opacity: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-left, .hero-right { position: relative; }
+
+    /* hero dark section overrides */
+    #hero .hero-overline { color: #4ade80; }
+    #hero h1 { color: #f1f5f9; }
+    #hero h1 span { color: #60a5fa; }
+    #hero .hero-subtitle { color: #94a3b8; }
+    #hero .hero-bio { color: #64748b; }
+    #hero .btn-outline { color: #f1f5f9; border-color: #334155; }
+    #hero .btn-outline:hover { border-color: #60a5fa; background: rgba(96,165,250,0.08); }
+    #hero .social-link { color: #94a3b8; border-color: #1e293b; }
+    #hero .social-link:hover { color: #60a5fa; border-color: #60a5fa; background: rgba(96,165,250,0.08); }
+
+    /* bento cards: white on dark hero bg */
+    #hero .bento {
+      background: #ffffff;
+      border-color: #e2e8f0;
+    }
+    #hero .bento-label { color: #94a3b8; }
+    #hero .bento-status-text { color: #18181b; }
+    #hero .bento-status-sub  { color: #6b7280; }
+    #hero .bento-value { color: #18181b; }
+    #hero .bento-sub   { color: #6b7280; }
+    #hero .stack-pill  { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+    #hero::after { background: linear-gradient(to bottom, transparent, #ffffff); }
+
+    .hero-overline {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; color: #16a34a;
+      text-transform: uppercase; letter-spacing: 1.8px;
+      margin-bottom: 20px;
+    }
+
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+      animation: live-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes live-pulse {
+      0%  { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    .hero-left h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .hero-left h1 span { color: var(--accent); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      font-weight: 400; color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .hero-bio {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.8; margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 20px; background: var(--accent); color: #fff;
+      border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 20px; background: transparent; color: var(--text);
+      border: 1px solid var(--border-dark); border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 600;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent); background: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .hero-social { display: flex; gap: 10px; }
+
+    .social-link {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; color: var(--text-secondary);
+      padding: 7px 13px;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--accent); border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* BENTO GRID */
+    .hero-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .bento {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .bento:hover {
+      border-color: var(--border-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .bento-wide { grid-column: span 2; }
+
+    .bento-label {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 8px;
+    }
+
+    .bento-value {
+      font-size: 22px; font-weight: 700; color: var(--text); line-height: 1;
+    }
+
+    .bento-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    .bento-status { display: flex; align-items: center; gap: 10px; }
+
+    .status-indicator {
+      width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+      animation: live-pulse 2s ease-in-out infinite;
+    }
+
+    .bento-status-text { font-size: 13px; font-weight: 600; color: var(--text); }
+    .bento-status-sub  { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .bento-location { display: flex; align-items: flex-start; gap: 8px; }
+    .bento-location-icon { color: var(--accent); margin-top: 1px; flex-shrink: 0; }
+
+    .bento-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+
+    .stack-pill {
+      font-size: 11px; font-weight: 500;
+      padding: 3px 9px; border-radius: 20px;
+      background: white; color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 6%; }
+
+    .section-header { margin-bottom: 36px; }
+
+    .section-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--accent); margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700; color: var(--text);
+      padding-left: 14px; border-left: 3px solid var(--accent);
+      line-height: 1.2;
+    }
+
+    hr.rule { border: none; border-top: 1px solid var(--border); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); }
+
+    .about-grid {
+      display: grid; grid-template-columns: 3fr 2fr;
+      gap: 56px; align-items: start;
+    }
+
+    .about-bio p {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 14px;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .stat-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(37,99,235,0.08);
+    }
+
+    .stat-number { font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .stat-label  { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px;
+    }
+
+    .skill-group {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-group:hover {
+      border-color: var(--border-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .skill-group-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+
+    .skill-group-icon {
+      width: 30px; height: 30px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .skill-group-icon.blue   { background: rgba(37,99,235,0.1);  color: #2563eb; }
+    .skill-group-icon.green  { background: rgba(22,163,74,0.1);   color: #16a34a; }
+    .skill-group-icon.orange { background: rgba(234,88,12,0.1);   color: #ea580c; }
+    .skill-group-icon.purple { background: rgba(124,58,237,0.1);  color: #7c3aed; }
+
+    .skill-group-name { font-size: 13px; font-weight: 600; color: var(--text); }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .skill-tag {
+      font-size: 11px; font-weight: 500;
+      padding: 4px 10px; border-radius: 20px; border: 1px solid;
+    }
+
+    .skill-tag.blue   { background: rgba(37,99,235,0.06);  color: #1d4ed8; border-color: rgba(37,99,235,0.2); }
+    .skill-tag.green  { background: rgba(22,163,74,0.06);   color: #15803d; border-color: rgba(22,163,74,0.2); }
+    .skill-tag.orange { background: rgba(234,88,12,0.06);   color: #c2410c; border-color: rgba(234,88,12,0.2); }
+    .skill-tag.purple { background: rgba(124,58,237,0.06);  color: #6d28d9; border-color: rgba(124,58,237,0.2); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--surface); }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 14px;
+    }
+
+    .project-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,99,235,0.08);
+    }
+
+    .project-card.placeholder { border-style: dashed; opacity: 0.4; pointer-events: none; }
+
+    .project-card-top {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+    }
+
+    .project-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .project-link-icon { color: var(--text-muted); flex-shrink: 0; transition: color 0.2s; }
+    .project-card:hover .project-link-icon { color: var(--accent); }
+    .project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; flex: 1; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .project-tag {
+      font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px;
+      background: rgba(37,99,235,0.06); color: #1d4ed8;
+      border: 1px solid rgba(37,99,235,0.15);
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { position: relative; padding-left: 26px; }
+
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 5px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border);
+    }
+
+    .timeline-item { position: relative; margin-bottom: 40px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute; left: -23px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-meta {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 4px; flex-wrap: wrap;
+    }
+
+    .timeline-company { font-size: 12px; font-weight: 600; color: var(--accent); }
+
+    .timeline-period {
+      font-size: 11px; color: var(--text-muted);
+      background: var(--surface2); padding: 2px 8px;
+      border-radius: 4px; border: 1px solid var(--border);
+    }
+
+    .timeline-role { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+
+    .timeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.75; }
+    .timeline-desc ul { margin-top: 8px; padding-left: 16px; }
+    .timeline-desc li { margin-bottom: 4px; }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--surface); }
+
+    .education-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 14px;
+    }
+
+    .edu-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 18px;
+      display: flex; gap: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(37,99,235,0.08);
+    }
+
+    .edu-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(37,99,235,0.08); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .edu-degree   { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+    .edu-institution { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 3px; }
+    .edu-meta     { font-size: 11px; color: var(--text-muted); }
+
+    /* ── CERTS ── */
+    .certs-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 14px;
+    }
+
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 18px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .cert-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(37,99,235,0.08);
+    }
+
+    .cert-platform {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--accent);
+    }
+
+    .cert-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.35; }
+
+    .cert-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; color: #16a34a;
+      background: rgba(22,163,74,0.07);
+      border: 1px solid rgba(22,163,74,0.2);
+      border-radius: 4px; padding: 3px 9px; width: fit-content;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--surface); }
+
+    .contact-inner { max-width: 500px; margin: 0 auto; text-align: center; }
+
+    .contact-heading {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; margin-bottom: 12px;
+    }
+
+    .contact-subtext {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 28px;
+    }
+
+    .contact-buttons {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 20px 6%; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-text { font-size: 12px; color: var(--text-muted); }
+    .footer-accent { color: var(--accent); font-weight: 500; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; padding: 90px 6% 48px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links, .btn-hire { display: none; }
+      .nav-hamburger { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 60px; left: 0; right: 0;
+        background: var(--bg); border-bottom: 1px solid var(--border);
+        padding: 12px 6%; gap: 2px;
+      }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero-buttons { flex-direction: column; }
+      .contact-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-monogram">OS</div>
+    <span class="nav-name">Oluwatosin Salami</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:oluwatosinadesoyesalami@gmail.com?subject=Let's%20Work%20Together" class="btn-hire">Hire Me</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <i data-lucide="menu" width="20" height="20"></i>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+
+  <!-- Code background illustration -->
+  <div class="hero-bg" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New',monospace">
+      <!-- Circuit lines -->
+      <g stroke="#38bdf8" stroke-width="1.2" fill="none" opacity="0.15">
+        <polyline points="0,120 80,120 80,200 200,200"/>
+        <polyline points="200,200 200,320 340,320"/>
+        <circle cx="200" cy="200" r="4" fill="#38bdf8"/>
+        <circle cx="340" cy="320" r="4" fill="#38bdf8"/>
+        <polyline points="1200,80 1100,80 1100,180 980,180 980,280"/>
+        <circle cx="1100" cy="80" r="4" fill="#38bdf8"/>
+        <circle cx="980" cy="180" r="4" fill="#38bdf8"/>
+        <polyline points="600,0 600,60 720,60 720,140"/>
+        <circle cx="600" cy="60" r="4" fill="#38bdf8"/>
+        <circle cx="720" cy="140" r="4" fill="#38bdf8"/>
+        <polyline points="0,500 120,500 120,400 260,400 260,460"/>
+        <circle cx="120" cy="500" r="4" fill="#38bdf8"/>
+        <circle cx="260" cy="400" r="4" fill="#38bdf8"/>
+        <polyline points="1200,600 1050,600 1050,480 900,480"/>
+        <circle cx="1050" cy="600" r="4" fill="#38bdf8"/>
+        <circle cx="900" cy="480" r="4" fill="#38bdf8"/>
+        <polyline points="400,700 400,580 520,580 520,520"/>
+        <circle cx="400" cy="580" r="4" fill="#38bdf8"/>
+        <circle cx="520" cy="520" r="4" fill="#38bdf8"/>
+      </g>
+      <!-- Code text -->
+      <g fill="#7dd3fc" font-size="12" opacity="0.18">
+        <text x="30"  y="60" >const api = new RestClient();</text>
+        <text x="30"  y="78" >  .baseURL('https://api.hasob.ng').auth(token);</text>
+        <text x="820" y="42" >docker build -t app:prod .</text>
+        <text x="820" y="60" >kubectl apply -f deployment.yaml</text>
+        <text x="820" y="78" >kubectl rollout status deploy/api</text>
+        <text x="20"  y="360">Route::middleware(['auth:sanctum'])</text>
+        <text x="20"  y="378">  ->group(fn() => Route::apiResource(...));</text>
+        <text x="870" y="220">SELECT u.*, COUNT(p.id) FROM users u</text>
+        <text x="870" y="238">JOIN projects p ON p.user_id = u.id</text>
+        <text x="870" y="256">GROUP BY u.id HAVING COUNT(p.id) > 0;</text>
+        <text x="50"  y="590">git commit -m "feat: add rate limiting"</text>
+        <text x="50"  y="608">git push origin main</text>
+        <text x="800" y="530">async function fetchData(id) {'{'}</text>
+        <text x="800" y="548">  return await db.query(sql, [id]);</text>
+        <text x="800" y="566">{'}'}</text>
+        <text x="430" y="148" font-size="20">{'{ }'}</text>
+        <text x="560" y="628" font-size="16">{'</>'}</text>
+        <text x="740" y="358" font-size="15">{'[ ]'}</text>
+        <text x="180" y="480" font-size="13">// optimise query performance</text>
+        <text x="650" y="178" font-size="13">$ npm run build:prod</text>
+        <text x="320" y="240" font-size="13">@Injectable() class AuthService</text>
+        <text x="920" y="390" font-size="13">HTTP 200 OK · 142ms</text>
+      </g>
+      <!-- Terminal bar top-left -->
+      <g fill="#38bdf8" opacity="0.15">
+        <circle cx="20" cy="18" r="4"/>
+        <circle cx="36" cy="18" r="4"/>
+        <circle cx="52" cy="18" r="4"/>
+        <rect x="10" y="28" width="100" height="1"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+  <div class="hero-left">
+    <div class="hero-overline">
+      <span class="live-dot"></span>
+      Open to remote opportunities
+    </div>
+    <h1>Oluwatosin<br><span>Salami</span></h1>
+    <p class="hero-subtitle">Enterprise Software Engineer</p>
+    <p class="hero-bio">
+      I build backend systems that hold up at scale — from government platforms to research infrastructure. Focused on clean architecture, reliable APIs, and shipping things that actually work in production.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">
+        <i data-lucide="layers" width="15" height="15"></i>
+        View My Work
+      </a>
+      <a href="#contact" class="btn-outline">
+        <i data-lucide="mail" width="15" height="15"></i>
+        Get In Touch
+      </a>
+    </div>
+    <div class="hero-social">
+      <a href="https://github.com/maitiigor" target="_blank" rel="noopener" class="social-link">
+        <i data-lucide="github" width="14" height="14"></i>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/oluwatosin-adesoye-576284166/" target="_blank" rel="noopener" class="social-link">
+        <i data-lucide="linkedin" width="14" height="14"></i>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- BENTO GRID -->
+  <div class="hero-right">
+    <div class="bento bento-wide">
+      <div class="bento-label">Current status</div>
+      <div class="bento-status">
+        <span class="status-indicator"></span>
+        <div>
+          <div class="bento-status-text">Available for new projects</div>
+          <div class="bento-status-sub">Lead Software Developer · Hasob Integrated Services</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="bento-label">Experience</div>
+      <div class="bento-value">5+</div>
+      <div class="bento-sub">Years in production</div>
+    </div>
+
+    <div class="bento">
+      <div class="bento-label">Based in</div>
+      <div class="bento-location">
+        <i data-lucide="map-pin" width="15" height="15" class="bento-location-icon"></i>
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--text);">Abuja, Nigeria</div>
+          <div class="bento-sub">West Africa · UTC+1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento bento-wide">
+      <div class="bento-label">Core stack</div>
+      <div class="bento-stack">
+        <span class="stack-pill">PHP</span>
+        <span class="stack-pill">Laravel</span>
+        <span class="stack-pill">Node.js</span>
+        <span class="stack-pill">Java</span>
+        <span class="stack-pill">PostgreSQL</span>
+        <span class="stack-pill">Docker</span>
+        <span class="stack-pill">Kubernetes</span>
+        <span class="stack-pill">Linux</span>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="bento-label">Shipped</div>
+      <div class="bento-value">10+</div>
+      <div class="bento-sub">Enterprise projects</div>
+    </div>
+
+    <div class="bento">
+      <div class="bento-label">Certifications</div>
+      <div class="bento-value">3</div>
+      <div class="bento-sub">Distributed · DevOps</div>
+    </div>
+  </div>
+  </div><!-- end .hero-inner -->
+</section>
+
+<hr class="rule" />
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <p class="section-label">Introduction</p>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-bio">
+      <p>I am a Software Engineer with over five years of professional experience designing and building enterprise-grade backend systems. Based in Abuja, I currently lead software development at Hasob Integrated Services, where I architect multi-tenant platforms serving government agencies and large institutions.</p>
+      <p>My core expertise spans the PHP/Laravel and Node.js ecosystems, with deep practical experience in relational and document databases, containerised deployments, and RESTful API design. I approach engineering with an emphasis on system reliability, maintainability, and long-term scalability.</p>
+      <p>I am pursuing an M.Sc. in Information Management at ABU Zaria, where my research sits at the intersection of software engineering and knowledge systems. Open to remote engagements with teams building meaningful, high-impact software.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-card"><div class="stat-number">10+</div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Countries Served</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Certifications</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <p class="section-label">Technical Expertise</p>
+    <h2 class="section-title">Skills &amp; Technologies</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon blue"><i data-lucide="code-2" width="15" height="15"></i></div>
+        <span class="skill-group-name">Backend Development</span>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag blue">PHP</span>
+        <span class="skill-tag blue">Laravel</span>
+        <span class="skill-tag blue">Node.js</span>
+        <span class="skill-tag blue">Express</span>
+        <span class="skill-tag blue">Java</span>
+        <span class="skill-tag blue">REST API</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon green"><i data-lucide="database" width="15" height="15"></i></div>
+        <span class="skill-group-name">Databases</span>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag green">MySQL</span>
+        <span class="skill-tag green">PostgreSQL</span>
+        <span class="skill-tag green">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon orange"><i data-lucide="server" width="15" height="15"></i></div>
+        <span class="skill-group-name">DevOps &amp; Infrastructure</span>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag orange">Docker</span>
+        <span class="skill-tag orange">Kubernetes</span>
+        <span class="skill-tag orange">Linux</span>
+        <span class="skill-tag orange">Server Admin</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon purple"><i data-lucide="layers" width="15" height="15"></i></div>
+        <span class="skill-group-name">Tools &amp; Practices</span>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag purple">Git</span>
+        <span class="skill-tag purple">Agile / Scrum</span>
+        <span class="skill-tag purple">JWT Auth</span>
+        <span class="skill-tag purple">API Documentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Selected Projects</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-card-top">
+        <h3 class="project-title">Government Intervention Management System</h3>
+        <i data-lucide="external-link" width="14" height="14" class="project-link-icon"></i>
+      </div>
+      <p class="project-desc">Multi-tenant platform for federal agencies to plan, track, and report on social intervention programmes and beneficiary disbursements at scale.</p>
+      <div class="project-tags">
+        <span class="project-tag">Laravel</span><span class="project-tag">MySQL</span><span class="project-tag">Docker</span><span class="project-tag">REST API</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-top">
+        <h3 class="project-title">Tertiary Education Research Platform</h3>
+        <i data-lucide="external-link" width="14" height="14" class="project-link-icon"></i>
+      </div>
+      <p class="project-desc">Collaborative research management system for universities enabling proposal submission, peer review workflows, and publication tracking.</p>
+      <div class="project-tags">
+        <span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Express</span><span class="project-tag">JWT Auth</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-top">
+        <h3 class="project-title">Impact &amp; Remote Monitoring Portal</h3>
+        <i data-lucide="external-link" width="14" height="14" class="project-link-icon"></i>
+      </div>
+      <p class="project-desc">Real-time field data aggregation and reporting portal for monitoring programme outcomes across geographically distributed sites.</p>
+      <div class="project-tags">
+        <span class="project-tag">Laravel</span><span class="project-tag">MongoDB</span><span class="project-tag">Kubernetes</span><span class="project-tag">Linux</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-top">
+        <h3 class="project-title">Learning Management System</h3>
+        <i data-lucide="external-link" width="14" height="14" class="project-link-icon"></i>
+      </div>
+      <p class="project-desc">Full-featured LMS supporting course management, enrolment, assessments, and progress tracking for institutional e-learning programmes.</p>
+      <div class="project-tags">
+        <span class="project-tag">PHP</span><span class="project-tag">MySQL</span><span class="project-tag">REST API</span><span class="project-tag">Docker</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-card-top">
+        <h3 class="project-title">Electronic Document Management System</h3>
+        <i data-lucide="external-link" width="14" height="14" class="project-link-icon"></i>
+      </div>
+      <p class="project-desc">Secure document lifecycle platform with versioning, role-based access control, audit trails, and automated archival workflows.</p>
+      <div class="project-tags">
+        <span class="project-tag">Laravel</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Server Admin</span><span class="project-tag">JWT Auth</span>
+      </div>
+    </div>
+    <div class="project-card placeholder">
+      <div class="project-card-top"><h3 class="project-title">More projects coming soon</h3></div>
+      <p class="project-desc">Additional open-source and client projects will be published here.</p>
+      <div class="project-tags"><span class="project-tag">Stay tuned</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Work Experience</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">
+        <span class="timeline-company">Hasob Integrated Services</span>
+        <span class="timeline-period">Sep 2021 — Present</span>
+      </div>
+      <div class="timeline-role">Lead Software Developer</div>
+      <div class="timeline-desc">
+        Leading design and delivery of enterprise software platforms for government and institutional clients in Abuja.
+        <ul>
+          <li>Architected and shipped 5+ production systems across intervention management, education, and document management domains.</li>
+          <li>Established engineering standards, code review practices, and CI/CD pipelines across the team.</li>
+          <li>Led containerisation of legacy services with Docker and Kubernetes, improving deployment reliability.</li>
+          <li>Collaborated directly with stakeholders to translate policy requirements into scalable software.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">
+        <span class="timeline-company">Glodaris Technologies Consulting</span>
+        <span class="timeline-period">Jun 2019 — Jul 2021</span>
+      </div>
+      <div class="timeline-role">Software Developer</div>
+      <div class="timeline-desc">
+        Contributed to full-cycle development of web applications and APIs across multiple client engagements.
+        <ul>
+          <li>Built and maintained RESTful APIs with PHP/Laravel and Node.js/Express for diverse client products.</li>
+          <li>Designed and optimised relational database schemas in MySQL and PostgreSQL for high-volume systems.</li>
+          <li>Delivered features within Agile sprint cycles consistently across multiple concurrent projects.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="education-grid">
+    <div class="edu-card">
+      <div class="edu-icon"><i data-lucide="graduation-cap" width="18" height="18"></i></div>
+      <div>
+        <div class="edu-degree">M.Sc. Information Management (Software Engineering Track)</div>
+        <div class="edu-institution">Ahmadu Bello University, Zaria</div>
+        <div class="edu-meta">2022 — Ongoing</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon"><i data-lucide="graduation-cap" width="18" height="18"></i></div>
+      <div>
+        <div class="edu-degree">B.Tech Information Technology</div>
+        <div class="edu-institution">Federal University of Technology, Minna</div>
+        <div class="edu-meta">2013 — 2018</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <span class="cert-platform">Coursera</span>
+      <div class="cert-name">Distributed Systems &amp; Cloud Computing</div>
+      <div class="cert-badge"><i data-lucide="check-circle" width="11" height="11"></i> Completed</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-platform">Udemy</span>
+      <div class="cert-name">Docker &amp; Kubernetes: The Practical Guide</div>
+      <div class="cert-badge"><i data-lucide="check-circle" width="11" height="11"></i> Completed</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-platform">Udemy</span>
+      <div class="cert-name">Node.js, Express, MongoDB &amp; More: The Complete Bootcamp</div>
+      <div class="cert-badge"><i data-lucide="check-circle" width="11" height="11"></i> Completed</div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label" style="text-align:center;">Get In Touch</p>
+    <h2 class="contact-heading">Let's Build Something Together</h2>
+    <p class="contact-subtext">Open to full-time remote roles and contract engagements. If you have a project that needs a senior backend engineer, I'd love to hear about it.</p>
+    <div class="contact-buttons">
+      <a href="mailto:oluwatosinadesoyesalami@gmail.com?subject=Let's%20Work%20Together" class="btn-primary">
+        <i data-lucide="mail" width="15" height="15"></i>
+        Contact Me
+      </a>
+      <a href="https://www.linkedin.com/in/oluwatosin-adesoye-576284166/" target="_blank" rel="noopener" class="btn-outline">
+        <i data-lucide="linkedin" width="15" height="15"></i>
+        LinkedIn
+      </a>
+      <a href="https://github.com/maitiigor" target="_blank" rel="noopener" class="btn-outline">
+        <i data-lucide="github" width="15" height="15"></i>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">© 2026 <span class="footer-accent">Oluwatosin Salami</span> · Built with care</span>
+  <span class="footer-text">Abuja, Nigeria</span>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.innerHTML = navLinks.classList.contains('open')
+      ? '<i data-lucide="x" width="20" height="20"></i>'
+      : '<i data-lucide="menu" width="20" height="20"></i>';
+    lucide.createIcons();
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.innerHTML = '<i data-lucide="menu" width="20" height="20"></i>';
+      lucide.createIcons();
+    });
+  });
+
+  const sections   = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  sections.forEach(s =>
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting)
+          navAnchors.forEach(a =>
+            a.classList.toggle('active', a.getAttribute('href') === `#${e.target.id}`)
+          );
+      });
+    }, { threshold: 0.35 }).observe(s)
+  );
+</script>
+</body>
+</html>
